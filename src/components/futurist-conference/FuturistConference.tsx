@@ -98,9 +98,9 @@ const FuturistConference: React.FC = () => {
     <div className={classes.infoBlock}>
         <h2 className={classes.title}>The 6th annual Futurist Conference.</h2>
         <p className={classes.paragraph}>
-        The Global Entrepreneurship Network released seven targets and 35 recommendations in{' '}
+        The Global Entrepreneurship Network released seven targets and 35 recommendations in&nbsp;
         <span className={classes.boldParagraph}>support of policies and programs that leverage entrepreneurship to boost economic growth and job creation</span>
-        {' '}across Latin America, the Caribbean and Latino/a communities throughout the United States.
+        &nbsp;across Latin America, the Caribbean and Latino/a communities throughout the United States.
         </p>
         <button className={classes.button}>
           Download Report

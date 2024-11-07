@@ -19,7 +19,10 @@ const useStyles = makeStyles()(() => ({
       color: 'rgba(245, 245, 245, 1)',
 
       backgroundColor: 'rgb(0, 0, 0)',
-      clipPath: 'polygon(100% 0, 100% 35%, 62% 100%, 0 100%, 0 0)',
+      backgroundImage: 'linear-gradient(to top left, rgb(255, 255, 255) 50%, transparent 50%)',
+      backgroundPosition: 'calc(100% + 1px) calc(100% + 1px)',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: '35% 65%',
   },
   infoBlock: {
       width: '50%',
@@ -66,19 +69,24 @@ const useStyles = makeStyles()(() => ({
       '&:hover': {
           backgroundColor: 'rgb(248, 196, 23, 1)',
       },
+
+      position: 'relative',
   },
   icon: {
-    marginLeft: 'auto',
+    position: 'absolute',
+    right: '10%',
 
   },
 
   imageBlock: {
-      flex: 1,
-      textAlign: 'center',
+    width: '50%',
+    maxWidth: '580px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   image: {
-      maxWidth: '100%',
-      borderRadius: '8px',
+      width: '100%',
   },
 }));
 

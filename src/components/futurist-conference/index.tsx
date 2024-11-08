@@ -1,7 +1,6 @@
 import React from "react";
 
 import arrowIcon from "./../../assets/icon/arrow.png";
-import frame5 from "./../../assets/image/frame-5.png";
 import useStyles from "./futurist-conference.styles";
 
 const FuturistConference: React.FC = () => {
@@ -22,7 +21,7 @@ const FuturistConference: React.FC = () => {
           </button>
     </div>
     <div className={classes.imageBlock}>
-        <img src={frame5} className={classes.image} alt="Conference"/>
+        <img className={classes.image} alt="Conference"/>
     </div>
   </div>
   );

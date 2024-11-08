@@ -1,8 +1,8 @@
 import { makeStyles } from "tss-react/mui";
 
-import frame5 from "./../../assets/image/frame-5.png";
-import frame5320 from "./../../assets/image/frame-5-320.png";
-import frame5480 from "./../../assets/image/frame-5-480.png";
+import frame5 from "./../../assets/image/futurist-conference-image/frame-5.png";
+import frame5320 from "./../../assets/image/futurist-conference-image/frame-5-320.png";
+import frame5480 from "./../../assets/image/futurist-conference-image/frame-5-480.png";
 
 const useStyles = makeStyles()(() => ({
   container: {
@@ -13,10 +13,7 @@ const useStyles = makeStyles()(() => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    //clamp does not work with gap
-
-    gap: 'clamp(1.3rem, 0.008vw, 2.5rem)',
-    //--------------------------------
+    gap: '2.5rem',
     fontFamily: 'Montserrat',
     color: 'rgba(245, 245, 245, 1)',
     backgroundColor: 'rgb(0, 0, 0)',
@@ -46,13 +43,12 @@ const useStyles = makeStyles()(() => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'flex-start',
-    //clamp does not work with gap
-    gap: 'clamp(1rem, 0.002vw, 1.3rem)',
-    //--------------------------------
+    gap: '1.3rem',
 
     '@media (max-width: 480px)': {
       width: '100%',
       alignItems: 'center',
+      gap: '1rem',
     },
   },
   title: {

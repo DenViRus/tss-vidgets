@@ -1,6 +1,8 @@
 import { makeStyles } from "tss-react/mui";
 
-import frame5 from "./../../assets/image//going-event-image/frame-5.png";
+import frame5 from "./../../assets/image/going-event-image/frame-5.png";
+import frame5320 from "./../../assets/image/going-event-image/frame-5-320.png";
+import frame5480 from "./../../assets/image/going-event-image/frame-5-480.png";
 
 const useStyles = makeStyles()(() => ({
   container: {
@@ -43,7 +45,12 @@ const useStyles = makeStyles()(() => ({
   image: {
     width: '100%',
     content: `url(${frame5})`,
-
+   '@media (max-width: 480px)': {
+        content: `url(${frame5480})`,
+      },
+      '@media (max-width: 320px)': {
+        content: `url(${frame5320})`,
+      },
   },
 
   infoBlock: {
@@ -64,14 +71,44 @@ const useStyles = makeStyles()(() => ({
 
   title: {
     margin: '0',
+    padding: '1rem 0',
     fontSize: 'clamp(2rem, 0.6000rem + 2.9167vw, 4.8rem)',
     fontWeight: '700',
     lineHeight: 'clamp(3rem, 1.5000rem + 3.1250vw, 6rem)',
 
+    '@media (max-width: 320px)': {
+      fontSize: '2rem',
+      lineHeight: '3rem',
+    }
+
   },
 
   paragraph: {
+    margin: '0',
+    fontSize: 'clamp(1.4rem, 1.2000rem + 0.4167vw, 1.8rem)',
+    fontWeight: '200',
+    lineHeight: 'clamp(2rem, 1.6000rem + 0.8333vw, 2.8rem)',
+    '&:nth-of-type(n + 2)': {
+    marginTop: '1rem',
+  },
+    '@media (max-width: 480px)': {
+      fontWeight: '400',
+    },
 
+    '@media (max-width: 320px)': {
+      fontSize: '1.4rem',
+      lineHeight: '2rem',
+    }
+  },
+
+  boldParagraph: {
+    fontWeight: '700',
+  },
+
+  firstParagraph: {
+   '@media (max-width: 480px)': {
+      display: 'none',
+    },
   },
 
 }));

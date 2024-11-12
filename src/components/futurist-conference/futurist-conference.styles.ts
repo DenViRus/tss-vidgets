@@ -124,6 +124,7 @@ const useStyles = makeStyles()(() => ({
       width: '100%',
     }
   },
+
   image: {
       width: '100%',
       content: `url(${frame5})`,
@@ -133,7 +134,6 @@ const useStyles = makeStyles()(() => ({
       '@media (max-width: 320px)': {
         content: `url(${frame5320})`,
       },
-
   },
 }));
 

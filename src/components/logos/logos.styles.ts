@@ -18,7 +18,7 @@ const useStyles = makeStyles()(() => ({
     justifyContent: 'space-around',
     alignItems: 'center',
     flexWrap: 'wrap',
-    gap: '1.8rem',
+    gap: '1.5rem',
     listStyle: 'none',
     '@media (max-width: 480px)': {
       justifyContent: 'space-between',

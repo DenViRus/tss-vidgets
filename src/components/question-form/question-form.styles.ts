@@ -5,122 +5,197 @@ const useStyles = makeStyles()(() => ({
     maxWidth: '144rem',
     minWidth: '32rem',
     width: '100%',
-    padding: '2rem',
+    padding: '8.45rem 2rem',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    fontFamily: 'Arial, sans-serif',
-    backgroundColor: '#f9f9f9',
-    borderRadius: '1rem',
-    boxShadow: '0 0.4rem 1.2rem rgba(0, 0, 0, 0.1)',
+    gap: '1.5rem',
+    fontFamily: 'Montserrat',
+    color: 'rgba(0, 0, 0, 1)',
+    backgroundColor: 'rgba(245, 245, 245, 1)',
     boxSizing: 'border-box',
+
+    '@media (max-width: 480px)': {
+      backgroundColor: 'rgb(255, 255, 255, 1)',
+      gap: '3rem',
+    },
+
+    '@media (max-width: 320px)': {
+      padding: '2rem 1.6rem',
+    }
   },
 
   titleBlock: {
-    marginBottom: '1.5rem',
-    textAlign: 'center',
-  },
-
-  title: {
-    fontSize: '2.4rem',
-    fontWeight: 700,
-    lineHeight: '3rem',
-    color: '#333',
-    marginBottom: '0.5rem',
-  },
-
-  paragraph: {
-    fontSize: '1.6rem',
-    fontWeight: 400,
-    lineHeight: '2.4rem',
-    color: '#555',
-  },
-
-  form: {
+    maxWidth: 'clamp(44rem, 35.9000rem + 16.8750vw, 60.2rem)',
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    gap: '1.5rem',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    gap: '1rem',
+  },
+
+  title: {
+    margin: '0',
+    fontSize: 'clamp(2.4rem, 1.8000rem + 1.2500vw, 3.6rem)',
+    fontWeight: '700',
+    lineHeight: 'clamp(3.2rem, 2.6000rem + 1.2500vw, 4.4rem)',
+    letterSpacing: '-0.02em',
+
+    '@media (max-width: 480px)': {
+      letterSpacing: '0',
+    }
+  },
+
+  paragraph: {
+    margin: '0',
+    fontSize: 'clamp(1.6rem, 1.5000rem + 0.2083vw, 1.8rem)',
+    fontWeight: '400',
+    lineHeight: 'clamp(2.4rem, 2.2000rem + 0.4167vw, 2.8rem)',
+  },
+
+  form: {
+    maxWidth: '69rem',
+    minWidth: '44rem',
+    width: 'clamp(44rem, 31.5000rem + 26.0417vw, 69rem)',
+    padding: 'clamp(0rem, -1.0000rem + 2.0833vw, 2rem) clamp(0rem, -2.2000rem + 4.5833vw, 4.4rem)',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '3rem',
+    backgroundColor: 'rgb(255, 255, 255, 1)',
+    borderRadius: '1rem',
+    boxSizing: 'border-box',
+
+    '@media (max-width: 480px)': {
+      maxWidth: '44rem',
+      minWidth: '28.8rem',
+      width: '100%',
+    }
   },
 
   formFieldsBlock: {
+    width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    gap: '1.5rem',
+    gap: '3rem',
   },
 
   fieldRow: {
+    position: 'relative',
+    width: '100%',
+
     display: 'flex',
     flexDirection: 'column',
+    gap: '0.6rem',
   },
 
   label: {
-    fontSize: '1.4rem',
-    fontWeight: 500,
-    color: '#666',
-    marginBottom: '0.5rem',
+    fontSize: 'clamp(1.2rem, 1.0000rem + 0.4167vw, 1.6rem)',
+    lineHeight: 'clamp(1.8rem, 1.5000rem + 0.6250vw, 2.4rem)',
+    fontWeight: '700',
+    color: 'rgba(52, 64, 84, 1)',
+
+    '@media (max-width: 480px)': {
+      fontWeight: '600',
+    }
   },
 
   input: {
     width: '100%',
-    padding: '1rem',
-    fontSize: '1.6rem',
-    color: '#333',
-    backgroundColor: '#fff',
-    border: '1px solid #ccc',
-    borderRadius: '0.5rem',
+    padding: '1rem 1.4rem',
+    fontFamily: 'Montserrat',
+    fontSize: 'clamp(1.2rem, 1.0000rem + 0.4167vw, 1.6rem)',
+    lineHeight: 'clamp(1.8rem, 1.5000rem + 0.6250vw, 2.4rem)',
+    fontWeight: 400,
+    color: 'rgba(102, 112, 133, 1)',
+    backgroundColor: 'rgb(255, 255, 255, 1)',
+    border: '0.1rem solid rgba(208, 213, 221, 1)',
+    borderRadius: '0.8rem',
     transition: 'border-color 0.2s',
+    boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
+    boxSizing: 'border-box',
     '&:focus': {
-      borderColor: '#333',
+      borderColor: 'rgba(52, 64, 84, 1)',
+      backgroundColor: 'rgb(250, 250, 250, 1)',
       outline: 'none',
     },
   },
 
   textarea: {
     width: '100%',
-    padding: '1rem',
-    fontSize: '1.6rem',
-    color: '#333',
-    backgroundColor: '#fff',
-    border: '1px solid #ccc',
-    borderRadius: '0.5rem',
-    resize: 'vertical',
+    minHeight: '10rem',
+    maxHeight: '20rem',
+    padding: '1rem 1.4rem',
+    fontFamily: 'Montserrat',
+    fontSize: 'clamp(1.2rem, 1.0000rem + 0.4167vw, 1.6rem)',
+    lineHeight: 'clamp(1.8rem, 1.5000rem + 0.6250vw, 2.4rem)',
+    fontWeight: 400,
+    color: 'rgba(102, 112, 133, 1)',
+    backgroundColor: 'rgb(255, 255, 255, 1)',
+    border: '0.1rem solid rgba(208, 213, 221, 1)',
+    borderRadius: '0.8rem',
     transition: 'border-color 0.2s',
+    boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
+    boxSizing: 'border-box',
+    resize: 'vertical',
+    overflowX: 'hidden',
     '&:focus': {
-      borderColor: '#333',
+      borderColor: 'rgba(52, 64, 84, 1)',
+      backgroundColor: 'rgb(250, 250, 250, 1)',
       outline: 'none',
     },
   },
 
   error: {
-    fontSize: '1.2rem',
-    color: '#d9534f',
-    marginTop: '0.5rem',
+    position: 'absolute',
+    top: '100%',
+    fontSize: '1.4rem',
+    lineHeight: '2rem',
+    fontWeight: 400,
+    color: 'rgba(71, 84, 103, 1)',
   },
 
   actionsBlock: {
     display: 'flex',
     justifyContent: 'center',
-    marginTop: '1.5rem',
   },
 
   button: {
-    padding: '1rem 2rem',
-    fontSize: '1.6rem',
-    fontWeight: 700,
-    color: '#fff',
-    backgroundColor: '#007bff',
+    maxWidth: '36rem',
+    minWidth: '28.8rem',
+    width: 'clamp(28.8rem, 25.2000rem + 7.5000vw, 36rem)',
+    maxHeight: '5.6rem',
+    minHeight: '4rem',
+    height: 'clamp(4rem, 3.2000rem + 1.6667vw, 5.6rem)',
+    padding: 'clamp(0.6rem, 0.2000rem + 0.8333vw, 1.4rem) clamp(1.2rem, 0.4000rem + 1.6667vw, 2.8rem)',
+    fontFamily: 'Montserrat',
+    fontSize: 'clamp(1.4rem, 1.3000rem + 0.2083vw, 1.6rem)',
+    lineHeight: 'clamp(1.7rem, 1.5750rem + 0.2604vw, 1.95rem)',
+    fontWeight: '700',
+    textTransform: 'uppercase',
+    color: 'rgba(0, 0, 0, 1)',
+    backgroundColor: 'rgba(252, 209, 68, 1)',
     border: 'none',
-    borderRadius: '0.5rem',
+    borderRadius: '1rem',
     cursor: 'pointer',
-    transition: 'background-color 0.2s',
+    boxSizing: 'border-box',
+    transition: 'transform 0.2s',
+
     '&:hover': {
-      backgroundColor: '#0056b3',
+      backgroundColor: 'rgb(248, 196, 23, 1)',
+      transform: 'scale(1.02)',
     },
-    '&:active': {
-      backgroundColor: '#00408b',
+  },
+
+  disabledButton: {
+    backgroundColor: 'rgb(211, 211, 211)',
+    color: 'rgb(128, 128, 128)',
+    cursor: 'not-allowed',
+    '&:hover': {
+      backgroundColor: 'rgb(211, 211, 211)',
+      transform: 'none',
     },
-  }
+  },
 
 }));
 

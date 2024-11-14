@@ -21,8 +21,16 @@ const validationSchema = Yup.object().shape({
 const QuestionForm: React.FC = () => {
   const { classes } = useStyles();
 
-  const { register, handleSubmit, formState: { errors } } = useForm<QuestionFormData>({
+  const {
+    register,
+    handleSubmit,
+    trigger,
+    reset,
+    formState: { errors, isSubmitting, isValid },
+  } = useForm<QuestionFormData>({
     resolver: yupResolver(validationSchema),
+    mode: "onBlur",
+    reValidateMode: "onChange",
   });
 
   const renderError = (error: string | undefined) =>
@@ -30,6 +38,7 @@ const QuestionForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<QuestionFormData> = (data) => {
     console.log(data);
+    reset();
   };
 
   return (
@@ -52,6 +61,8 @@ const QuestionForm: React.FC = () => {
             type="text"
             {...register("name")}
             placeholder="Enter your full name"
+            maxLength={20}
+            onBlur={() => trigger("name")}
             />
             {renderError(errors.name?.message)}
           </div>
@@ -64,6 +75,8 @@ const QuestionForm: React.FC = () => {
             type="email"
             {...register("email")}
             placeholder="email@unicoin.com"
+            maxLength={20}
+            onBlur={() => trigger("email")}
             />
             {renderError(errors.email?.message)}
           </div>
@@ -75,13 +88,19 @@ const QuestionForm: React.FC = () => {
             id="questionFormDescription"
             {...register("description")}
             placeholder="Enter a description"
+            rows={5}
+            maxLength={200}
+            onBlur={() => trigger("description")}
             />
            {renderError(errors.description?.message)}
           </div>
         </div>
 
         <div className={classes.actionsBlock}>
-          <button className={classes.button} type="submit">SEND</button>
+          <button
+          className={`${classes.button} ${!isValid || isSubmitting ? classes.disabledButton : ""}`}
+          type="submit"
+          disabled={!isValid || isSubmitting}>SEND</button>
         </div>
       </form>
 

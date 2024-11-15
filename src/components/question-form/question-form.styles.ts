@@ -159,8 +159,6 @@ const useStyles = makeStyles()(() => ({
 
   button: {
     width: 'clamp(28.8rem, 25.2000rem + 7.5000vw, 36rem)',
-    maxHeight: '5.6rem',
-    minHeight: '4rem',
     height: 'clamp(4rem, 3.2000rem + 1.6667vw, 5.6rem)',
     padding: 'clamp(0.6rem, 0.2000rem + 0.8333vw, 1.4rem) clamp(1.2rem, 0.4000rem + 1.6667vw, 2.8rem)',
     fontFamily: 'Montserrat',

@@ -6,13 +6,12 @@ import frame5480 from "./../../assets/image/futurist-conference-image/frame-5-48
 
 const useStyles = makeStyles()(() => ({
   container: {
-    maxWidth: '144rem',
     minWidth: '32rem',
     width: '100%',
-    padding: '2rem clamp(2rem, -2.2000rem + 8.7500vw, 10.4rem)',
+    padding: 'clamp(2rem, -0.7750rem + 5.7813vw, 7.55rem) clamp(2rem, -2.2000rem + 8.7500vw, 10.4rem)',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     gap: '2.5rem',
     fontFamily: 'Montserrat',
     color: 'rgba(245, 245, 245, 1)',
@@ -25,7 +24,6 @@ const useStyles = makeStyles()(() => ({
 
     '@media (max-width: 480px)': {
       flexDirection: 'column',
-      justifyContent: 'center',
       gap: '1.3rem',
       color: 'rgba(0, 0, 0, 1)',
       backgroundColor: 'rgb(255, 255, 255, 1)',
@@ -37,8 +35,7 @@ const useStyles = makeStyles()(() => ({
     }
   },
   infoBlock: {
-    maxWidth: 'clamp(44rem, 35.9000rem + 16.8750vw, 60.2rem)',
-    width: '50%',
+    width: 'clamp(44rem, 35.9000rem + 16.8750vw, 60.2rem)',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -46,9 +43,10 @@ const useStyles = makeStyles()(() => ({
     gap: '1.3rem',
 
     '@media (max-width: 480px)': {
-      width: '100%',
+      width: 'clamp(28.8rem, -1.6000rem + 95.0000vw, 44rem)',
       alignItems: 'center',
       gap: '1rem',
+
     },
   },
   title: {
@@ -57,11 +55,13 @@ const useStyles = makeStyles()(() => ({
     fontSize: 'clamp(2.4rem, 1.2000rem + 2.5000vw, 4.8rem)',
     fontWeight: '700',
     lineHeight: 'clamp(3.2rem, 1.8000rem + 2.9167vw, 6rem)',
+    letterSpacing: '-0.02em',
 
-    '@media (max-width: 320px)': {
-      fontSize: '2rem',
-      lineHeight: '3rem',
-    }
+    '@media (max-width: 480px)': {
+      fontSize: 'clamp(2rem, 1.2000rem + 2.5000vw, 2.4rem)',
+      lineHeight: 'clamp(3rem, 2.6000rem + 1.2500vw, 3.2rem)',
+      letterSpacing: '0',
+    },
   },
   paragraph: {
     margin: '0',
@@ -71,44 +71,41 @@ const useStyles = makeStyles()(() => ({
     '@media (max-width: 480px)': {
       fontWeight: '400',
     },
-
-    '@media (max-width: 320px)': {
-      fontSize: '1.4rem',
-      lineHeight: '2rem',
-    }
   },
   boldParagraph: {
     fontWeight: '700',
   },
   button: {
     position: 'relative',
-    maxWidth: 'calc(80rem - clamp(36rem, 32.0000rem + 8.3333vw, 44rem))',
-    minWidth: 'clamp(12rem, 9.0000rem + 6.2500vw, 18rem)',
-    minHeight: 'clamp(4rem, 3.2000rem + 1.6667vw, 5.6rem)',
-    width: '100%',
+    width: 'calc(80rem - clamp(36rem, 32.0000rem + 8.3333vw, 44rem))',
+    height: 'clamp(4rem, 3.2000rem + 1.6667vw, 5.6rem)',
     padding: 'clamp(0.8rem, 0.5000rem + 0.6250vw, 1.4rem) clamp(1.6rem, 1.0000rem + 1.2500vw, 2.8rem)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontFamily: 'inherit',
+    fontFamily: 'Montserrat',
     fontSize: 'clamp(1.4rem, 1.3000rem + 0.2083vw, 1.6rem)',
-    fontWeight: '700',
     lineHeight: 'clamp(1.7rem, 1.5750rem + 0.2604vw, 1.95rem)',
+    fontWeight: '700',
     textTransform: 'uppercase',
     color: 'rgba(0, 0, 0, 1)',
     backgroundColor: 'rgba(252, 209, 68, 1)',
-     '&:hover': {
-        backgroundColor: 'rgb(248, 196, 23, 1)',
-    },
     border: 'none',
     borderRadius: '1rem',
     cursor: 'pointer',
+    boxSizing: 'border-box',
+    transition: 'transform 0.2s',
 
-    '@media (max-width: 320px)': {
-      padding: '0.6rem 1.2rem',
-    }
+    '@media (max-width: 480px)': {
+      width: 'clamp(28.8rem, -1.6000rem + 95.0000vw, 44rem)',
+      padding: 'clamp(0.6rem, 0.2000rem + 1.2500vw, 0.8rem) clamp(1.2rem, 0.4000rem + 2.5000vw, 1.6rem)',
+    },
+
+    '&:hover': {
+      backgroundColor: 'rgb(248, 196, 23, 1)',
+      transform: 'scale(1.02)',
+    },
   },
   icon: {
+
+    // ?????
     position: 'absolute',
     right: 'clamp(5%, 1.6000rem + 0.8333vw, 10%)',
 

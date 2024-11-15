@@ -25,12 +25,12 @@ const QuestionForm: React.FC = () => {
     register,
     handleSubmit,
     trigger,
+    clearErrors,
     reset,
     formState: { errors, isSubmitting, isValid },
   } = useForm<QuestionFormData>({
     resolver: yupResolver(validationSchema),
     mode: "onBlur",
-    reValidateMode: "onChange",
   });
 
   const renderError = (error: string | undefined) =>
@@ -59,10 +59,16 @@ const QuestionForm: React.FC = () => {
             className={classes.input}
             id="questionFormName"
             type="text"
-            {...register("name")}
+            {...register("name", {
+              onChange: async () => {
+                if (errors.name) clearErrors("name");
+                await trigger("name");
+              },
+            })}
+            autoComplete="off"
             placeholder="Enter your full name"
             maxLength={20}
-            onBlur={() => trigger("name")}
+            onBlur={async() => await trigger("name")}
             />
             {renderError(errors.name?.message)}
           </div>
@@ -73,10 +79,16 @@ const QuestionForm: React.FC = () => {
             className={classes.input}
             id="questionFormEmail"
             type="email"
-            {...register("email")}
+            {...register("email", {
+              onChange: async () => {
+                if (errors.email) clearErrors("email");
+                await trigger("email");
+              }
+            })}
+            autoComplete="off"
             placeholder="email@unicoin.com"
             maxLength={20}
-            onBlur={() => trigger("email")}
+            onBlur={async () => await trigger("email")}
             />
             {renderError(errors.email?.message)}
           </div>
@@ -86,11 +98,16 @@ const QuestionForm: React.FC = () => {
             <textarea
             className={classes.textarea}
             id="questionFormDescription"
-            {...register("description")}
+            {...register("description", {
+              onChange: async () => {
+                if (errors.description) clearErrors("description");
+                await trigger("description");
+              }
+            })}
             placeholder="Enter a description"
             rows={5}
             maxLength={200}
-            onBlur={() => trigger("description")}
+            onBlur={async () => await trigger("description")}
             />
            {renderError(errors.description?.message)}
           </div>

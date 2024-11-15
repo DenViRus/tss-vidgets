@@ -2,10 +2,9 @@ import { makeStyles } from "tss-react/mui";
 
 const useStyles = makeStyles()(() => ({
   container: {
-    maxWidth: '144rem',
     minWidth: '32rem',
     width: '100%',
-    padding: '8.45rem 2rem',
+    padding: 'calc(20.4rem - clamp(8.45rem, 6.7000rem + 3.6458vw, 11.95rem)) 2rem',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -26,13 +25,15 @@ const useStyles = makeStyles()(() => ({
   },
 
   titleBlock: {
-    maxWidth: 'clamp(44rem, 35.9000rem + 16.8750vw, 60.2rem)',
-    width: '100%',
+    width: 'clamp(44rem, 35.9000rem + 16.8750vw, 60.2rem)',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'flex-start',
-    gap: '1rem',
+
+    '@media (max-width: 480px)': {
+      width: 'clamp(28.8rem, -1.6000rem + 95.0000vw, 44rem)',
+    },
   },
 
   title: {
@@ -55,22 +56,18 @@ const useStyles = makeStyles()(() => ({
   },
 
   form: {
-    maxWidth: '69rem',
-    minWidth: '44rem',
     width: 'clamp(44rem, 31.5000rem + 26.0417vw, 69rem)',
     padding: 'clamp(0rem, -1.0000rem + 2.0833vw, 2rem) clamp(0rem, -2.2000rem + 4.5833vw, 4.4rem)',
     display: 'flex',
     flexDirection: 'column',
-    gap: '3rem',
+    gap: '3.5rem',
     backgroundColor: 'rgb(255, 255, 255, 1)',
     borderRadius: '1rem',
     boxSizing: 'border-box',
 
     '@media (max-width: 480px)': {
-      maxWidth: '44rem',
-      minWidth: '28.8rem',
-      width: '100%',
-    }
+      width: 'clamp(28.8rem, -1.6000rem + 95.0000vw, 44rem)',
+    },
   },
 
   formFieldsBlock: {
@@ -161,8 +158,6 @@ const useStyles = makeStyles()(() => ({
   },
 
   button: {
-    maxWidth: '36rem',
-    minWidth: '28.8rem',
     width: 'clamp(28.8rem, 25.2000rem + 7.5000vw, 36rem)',
     maxHeight: '5.6rem',
     minHeight: '4rem',

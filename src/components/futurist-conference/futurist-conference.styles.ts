@@ -6,7 +6,6 @@ import frame5480 from "./../../assets/image/futurist-conference-image/frame-5-48
 
 const useStyles = makeStyles()(() => ({
   container: {
-    minWidth: '32rem',
     width: '100%',
     padding: 'clamp(2rem, -0.7750rem + 5.7813vw, 7.55rem) clamp(2rem, -2.2000rem + 8.7500vw, 10.4rem)',
     display: 'flex',
@@ -19,7 +18,7 @@ const useStyles = makeStyles()(() => ({
     backgroundImage: 'linear-gradient(to top left, rgb(255, 255, 255, 1) 50%, transparent 50%)',
     backgroundPosition: 'calc(100% + 0.1rem) calc(100% + 0.1rem)',
     backgroundRepeat: 'no-repeat',
-    backgroundSize: '35% 65%',
+    backgroundSize: '36% 67%',
     boxSizing: 'border-box',
 
     '@media (max-width: 480px)': {
@@ -50,6 +49,7 @@ const useStyles = makeStyles()(() => ({
     },
   },
   title: {
+    width: '100%',
     margin: '0',
     padding: '1rem 0',
     fontSize: 'clamp(2.4rem, 1.2000rem + 2.5000vw, 4.8rem)',
@@ -91,7 +91,7 @@ const useStyles = makeStyles()(() => ({
     borderRadius: '1rem',
     cursor: 'pointer',
     boxSizing: 'border-box',
-    transition: 'transform 0.2s',
+    transition: 'transform 0.1s',
 
     '@media (max-width: 480px)': {
       width: 'clamp(28.8rem, -1.6000rem + 95.0000vw, 44rem)',
@@ -100,25 +100,23 @@ const useStyles = makeStyles()(() => ({
 
     '&:hover': {
       backgroundColor: 'rgb(248, 196, 23, 1)',
-      transform: 'scale(1.02)',
+      transform: 'scale(1.01)',
     },
   },
   icon: {
-
-    // ?????
+    width: 'clamp(1.8rem, 1.7000rem + 0.2083vw, 2rem)',
     position: 'absolute',
-    right: 'clamp(5%, 1.6000rem + 0.8333vw, 10%)',
-
+    right: '2.5rem',
   },
 
   imageBlock: {
-    maxWidth: 'clamp(44rem, 37.0000rem + 14.5833vw, 58rem)',
-    width: '50%',
+    width: 'clamp(44rem, 37.0000rem + 14.5833vw, 58rem)',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    boxSizing: 'border-box',
     '@media (max-width: 480px)': {
-      width: '100%',
+      width: 'clamp(28.8rem, -1.6000rem + 95.0000vw, 44rem)',
     }
   },
 

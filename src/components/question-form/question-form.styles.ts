@@ -2,7 +2,6 @@ import { makeStyles } from "tss-react/mui";
 
 const useStyles = makeStyles()(() => ({
   container: {
-    minWidth: '32rem',
     width: '100%',
     padding: 'calc(20.4rem - clamp(8.45rem, 6.7000rem + 3.6458vw, 11.95rem)) 2rem',
     display: 'flex',
@@ -37,6 +36,7 @@ const useStyles = makeStyles()(() => ({
   },
 
   title: {
+    width: '100%',
     margin: '0',
     fontSize: 'clamp(2.4rem, 1.8000rem + 1.2500vw, 3.6rem)',
     fontWeight: '700',
@@ -172,11 +172,11 @@ const useStyles = makeStyles()(() => ({
     borderRadius: '1rem',
     cursor: 'pointer',
     boxSizing: 'border-box',
-    transition: 'transform 0.2s',
+    transition: 'transform 0.1s',
 
     '&:hover': {
       backgroundColor: 'rgb(248, 196, 23, 1)',
-      transform: 'scale(1.02)',
+      transform: 'scale(1.01)',
     },
   },
 

@@ -6,13 +6,11 @@ import frame5480 from "./../../assets/image/going-event-image/frame-5-480.png";
 
 const useStyles = makeStyles()(() => ({
   container: {
-    maxWidth: '144rem',
-    minWidth: '32rem',
     width: '100%',
-    padding: '2rem clamp(2rem, -2.2000rem + 8.7500vw, 10.4rem)',
+    padding: 'clamp(2rem, -1.2000rem + 6.6667vw, 8.4rem) clamp(2rem, -2.2000rem + 8.7500vw, 10.4rem)',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     gap: '2.5rem',
     fontFamily: 'Montserrat',
     color: 'rgba(0, 0, 0, 1)',
@@ -21,7 +19,6 @@ const useStyles = makeStyles()(() => ({
 
     '@media (max-width: 480px)': {
       flexDirection: 'column-reverse',
-      justifyContent: 'center',
       gap: '1.3rem',
     },
 
@@ -31,13 +28,13 @@ const useStyles = makeStyles()(() => ({
   },
 
   imageBlock: {
-    maxWidth: 'clamp(44rem, -237.5000rem + 586.4583vw, 60.7rem)',
-    width: '50%',
+    width: 'clamp(44rem, 35.6500rem + 17.3958vw, 60.7rem)',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    boxSizing: 'border-box',
     '@media (max-width: 480px)': {
-      width: '100%',
+      width: 'clamp(28.8rem, -1.6000rem + 95.0000vw, 44rem)',
     }
 
   },
@@ -54,15 +51,15 @@ const useStyles = makeStyles()(() => ({
   },
 
   infoBlock: {
-    maxWidth: 'clamp(44rem, 36.3000rem + 16.0417vw, 59.4rem)',
-    width: '50%',
+    width: 'clamp(44rem, 36.3000rem + 16.0417vw, 59.4rem)',
+    display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'flex-start',
     gap: '1.3rem',
 
     '@media (max-width: 480px)': {
-      width: '100%',
+      width: 'clamp(28.8rem, -1.6000rem + 95.0000vw, 44rem)',
       alignItems: 'center',
       gap: '1rem',
     },
@@ -70,23 +67,24 @@ const useStyles = makeStyles()(() => ({
   },
 
   title: {
+    width: '100%',
     margin: '0',
     padding: '1rem 0',
     fontSize: 'clamp(2rem, 0.6000rem + 2.9167vw, 4.8rem)',
     fontWeight: '700',
     lineHeight: 'clamp(3rem, 1.5000rem + 3.1250vw, 6rem)',
+    letterSpacing: '-0.02em',
 
-    '@media (max-width: 320px)': {
-      fontSize: '2rem',
-      lineHeight: '3rem',
-    }
+    '@media (max-width: 480px)': {
+      letterSpacing: '0',
+    },
 
   },
 
   paragraph: {
     margin: '0',
     fontSize: 'clamp(1.4rem, 1.2000rem + 0.4167vw, 1.8rem)',
-    fontWeight: '200',
+    fontWeight: '400',
     lineHeight: 'clamp(2rem, 1.6000rem + 0.8333vw, 2.8rem)',
     '&:nth-of-type(n + 2)': {
     marginTop: '1rem',
@@ -94,11 +92,6 @@ const useStyles = makeStyles()(() => ({
     '@media (max-width: 480px)': {
       fontWeight: '400',
     },
-
-    '@media (max-width: 320px)': {
-      fontSize: '1.4rem',
-      lineHeight: '2rem',
-    }
   },
 
   boldParagraph: {

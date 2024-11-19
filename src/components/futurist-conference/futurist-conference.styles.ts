@@ -1,8 +1,7 @@
+import frame5 from "@image/futurist-conference-image/frame-5.png";
+import frame5320 from "@image/futurist-conference-image/frame-5-320.png";
+import frame5480 from "@image/futurist-conference-image/frame-5-480.png";
 import { makeStyles } from "tss-react/mui";
-
-import frame5 from "./../../assets/image/futurist-conference-image/frame-5.png";
-import frame5320 from "./../../assets/image/futurist-conference-image/frame-5-320.png";
-import frame5480 from "./../../assets/image/futurist-conference-image/frame-5-480.png";
 
 const useStyles = makeStyles()(() => ({
   container: {

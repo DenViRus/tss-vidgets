@@ -1,6 +1,6 @@
+import downloadIcon from "@icon/download.svg";
 import React from "react";
 
-import arrowIcon from "./../../assets/icon/arrow.png";
 import useStyles from "./futurist-conference.styles";
 
 const FuturistConference: React.FC = () => {
@@ -17,7 +17,7 @@ const FuturistConference: React.FC = () => {
         </p>
         <button className={classes.button}>
           Download Report
-          <img src={arrowIcon} className={classes.icon} alt="Arrow Icon" />
+          <img src={downloadIcon} className={classes.icon} alt="Download Icon" />
           </button>
     </div>
     <div className={classes.imageBlock}>

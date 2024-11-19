@@ -1,8 +1,33 @@
 User-agent: *
 Disallow: /
 
+# указания для конкретных роботов
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Googlebot-Mobile
+Disallow: /
+
+User-agent: Googlebot-Image
+Disallow: /
+
 User-agent: Yandex
 Disallow: /
 
-User-agent: GoogleBot
+User-agent: Slurp
+Disallow: /
+
+User-agent: bingbot
+Disallow: /
+
+User-agent: msnbot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: Baiduspider-mobile
+Disallow: /
+
+User-agent: Baiduspider-image
 Disallow: /

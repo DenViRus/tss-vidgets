@@ -1,6 +1,6 @@
-import react from '@vitejs/plugin-react'
-import path from 'path'
-import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react';
+import path from 'path';
+import { defineConfig } from 'vite';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -14,11 +14,9 @@ export default defineConfig({
       '@interfaces': path.resolve(__dirname, './src/interfaces'),
     },
   },
-
   server: {
     host: '0.0.0.0',
-      port: 4500,
-      open: true,
+    port: 4500,
+    open: true,
   },
-}
-)
+});

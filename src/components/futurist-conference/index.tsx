@@ -1,4 +1,7 @@
 import downloadIcon from "@icon/download.svg";
+import frame5 from "@image/futurist-conference-image/frame-5.png";
+import frame5320 from "@image/futurist-conference-image/frame-5-320.png";
+import frame5480 from "@image/futurist-conference-image/frame-5-480.png";
 import React from "react";
 
 import useStyles from "./futurist-conference.styles";
@@ -21,7 +24,11 @@ const FuturistConference: React.FC = () => {
           </button>
     </div>
     <div className={classes.imageBlock}>
-        <img className={classes.image} alt="Conference"/>
+      <picture className={classes.picture}>
+        <source media="(max-width: 320px)" srcSet={frame5320} />
+        <source media="(max-width: 480px)" srcSet={frame5480} />
+        <img className={classes.image} src={frame5} alt="Conference image" />
+      </picture>
     </div>
   </div>
   );

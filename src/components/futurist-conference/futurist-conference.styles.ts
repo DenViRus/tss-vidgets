@@ -1,6 +1,3 @@
-import frame5 from "@image/futurist-conference-image/frame-5.png";
-import frame5320 from "@image/futurist-conference-image/frame-5-320.png";
-import frame5480 from "@image/futurist-conference-image/frame-5-480.png";
 import { makeStyles } from "tss-react/mui";
 
 const useStyles = makeStyles()(() => ({
@@ -119,15 +116,12 @@ const useStyles = makeStyles()(() => ({
     }
   },
 
+  picture: {
+    width: '100%',
+  },
   image: {
-      width: '100%',
-      content: `url(${frame5})`,
-      '@media (max-width: 480px)': {
-        content: `url(${frame5480})`,
-      },
-      '@media (max-width: 320px)': {
-        content: `url(${frame5320})`,
-      },
+    width: '100%',
+    display: 'block',
   },
 }));
 

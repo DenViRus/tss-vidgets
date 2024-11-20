@@ -70,19 +70,23 @@ const EventCounter: React.FC = () => {
   }, []);
 
   const eventStartMonth = eventStartDate.format('MMMM').toUpperCase();
-  const eventStartDay = eventStartDate.format('D');
+  const eventStartDay = eventStartDate.format('DD');
   const eventEndMonth = eventEndDate.format('MMMM').toUpperCase();
-  const eventEndDay = eventEndDate.format('D');
+  const eventEndDay = eventEndDate.format('DD');
   const eventYear = eventStartDate.format('YYYY');
 
-  let eventDateDisplay = `${eventStartMonth} ${eventStartDay}`;
+  let eventDateDisplay = '';
 
   if (eventDurationDays > 1) {
     if (eventStartDate.month() === eventEndDate.month()) {
-      eventDateDisplay += `-${eventEndDay}`;
+      eventDateDisplay = `${eventStartMonth} ${eventStartDay} - ${eventEndDay}`;
     } else {
-      eventDateDisplay += `-${eventEndMonth} ${eventEndDay}`;
+      const eventStartMonthAbbrev = eventStartDate.format('MMM').toUpperCase();
+      const eventEndMonthAbbrev = eventEndDate.format('MMM').toUpperCase();
+      eventDateDisplay = `${eventStartMonthAbbrev} ${eventStartDay} - ${eventEndMonthAbbrev} ${eventEndDay}`;
     }
+  } else {
+    eventDateDisplay = `${eventStartMonth} ${eventStartDay}`;
   }
 
   eventDateDisplay += `, `;

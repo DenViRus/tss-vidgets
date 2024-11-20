@@ -71,7 +71,6 @@ const EventCounter: React.FC = () => {
 
   const eventStartMonth = eventStartDate.format('MMMM').toUpperCase();
   const eventStartDay = eventStartDate.format('DD');
-  const eventEndMonth = eventEndDate.format('MMMM').toUpperCase();
   const eventEndDay = eventEndDate.format('DD');
   const eventYear = eventStartDate.format('YYYY');
 

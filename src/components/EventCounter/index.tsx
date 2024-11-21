@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import React, { useEffect, useState } from "react";
 
-import useStyles from "./event-counter.styles";
+import useStyles from "./EventCounter.styles";
 
 dayjs.extend(duration);
 

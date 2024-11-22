@@ -1,7 +1,7 @@
 import { makeStyles } from "tss-react/mui";
 
 const useStyles = makeStyles()(() => ({
-  container: {
+  section: {
     width: '100%',
     padding: 'clamp(2rem, -0.7750rem + 5.7813vw, 7.55rem) clamp(2rem, -2.2000rem + 8.7500vw, 10.4rem)',
     display: 'flex',
@@ -104,24 +104,14 @@ const useStyles = makeStyles()(() => ({
     position: 'absolute',
     right: '2.5rem',
   },
-
-  imageBlock: {
-    width: 'clamp(44rem, 37.0000rem + 14.5833vw, 58rem)',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    boxSizing: 'border-box',
-    '@media (max-width: 480px)': {
-      width: 'clamp(28.8rem, -1.6000rem + 95.0000vw, 44rem)',
-    }
-  },
-
-  picture: {
-    width: '100%',
-  },
   image: {
-    width: '100%',
-    display: 'block',
+    width: 'clamp(44rem, 37.0000rem + 14.5833vw, 58rem)',
+    height: 'clamp(22.1rem, 13.5000rem + 17.9167vw, 39.3rem)',
+
+    '@media (max-width: 480px)': {
+      width: 'clamp(22.8rem, -19.6000rem + 132.5000vw, 44rem)',
+      height: 'clamp(19.5rem, 14.3000rem + 16.2500vw, 22.1rem)',
+    }
   },
 }));
 

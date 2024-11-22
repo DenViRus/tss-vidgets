@@ -4,13 +4,13 @@ import frame5320 from "@image/futurist-conference-image/frame-5-320.png";
 import frame5480 from "@image/futurist-conference-image/frame-5-480.png";
 import React from "react";
 
-import useStyles from "./futurist-conference.styles";
+import useStyles from "./FuturistConference.styles";
 
 const FuturistConference: React.FC = () => {
   const { classes } = useStyles();
 
   return (
-  <div className={classes.container}>
+  <section className={classes.section}>
     <div className={classes.infoBlock}>
         <h2 className={classes.title}>The 6th annual Futurist Conference.</h2>
         <p className={classes.paragraph}>
@@ -23,14 +23,13 @@ const FuturistConference: React.FC = () => {
           <img src={downloadIcon} className={classes.icon} alt="Download Icon" />
           </button>
     </div>
-    <div className={classes.imageBlock}>
-      <picture className={classes.picture}>
+
+      <picture>
         <source media="(max-width: 320px)" srcSet={frame5320} />
         <source media="(max-width: 480px)" srcSet={frame5480} />
         <img className={classes.image} src={frame5} alt="Conference image" />
       </picture>
-    </div>
-  </div>
+  </section>
   );
 }
 

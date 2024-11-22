@@ -2,7 +2,7 @@ import eventCounterBackground from '@image/event-counter-image/event-counter-bac
 import { makeStyles } from "tss-react/mui";
 
 const useStyles = makeStyles()(() => ({
-  container: {
+  section: {
     width: '100%',
     padding: 'calc(7.5rem - clamp(2rem, 0.2500rem + 3.6458vw, 5.5rem)) calc(3.6rem - clamp(1.6rem, 1.4000rem + 0.4167vw, 2rem))',
     display: 'flex',
@@ -24,38 +24,23 @@ const useStyles = makeStyles()(() => ({
     },
   },
 
-  imageBlock: {
+  image: {
     width: 'calc(43.3rem - clamp(20.4rem, 19.1500rem + 2.6042vw, 22.9rem))',
     height: 'calc(12.1rem - clamp(5.7rem, 5.3500rem + 0.7292vw, 6.4rem))',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  image: {
-    width: '100%',
-    height: '100%',
-  },
-
-  titleBlock: {
-    width: 'clamp(33.4rem, 19.9000rem + 28.1250vw, 60.4rem)',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-
-    '@media (max-width: 480px)': {
-      width: 'clamp(28.8rem, 19.6000rem + 28.7500vw, 33.4rem)',
-    },
   },
 
   title: {
-    width: '100%',
+    width: 'clamp(33.4rem, 19.9000rem + 28.1250vw, 60.4rem)',
     margin: '0',
     fontSize: 'clamp(3rem, 1.5000rem + 3.1250vw, 6rem)',
     fontWeight: '700',
     lineHeight: 'clamp(3.6rem, 1.8000rem + 3.7500vw, 7.2rem)',
     letterSpacing: '-0.02em',
     textAlign: 'center',
+
+    '@media (max-width: 480px)': {
+      width: 'clamp(28.8rem, 19.6000rem + 28.7500vw, 33.4rem)',
+    },
 
   },
 

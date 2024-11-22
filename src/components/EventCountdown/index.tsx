@@ -3,7 +3,7 @@ import mapIcon from '@icon/map.svg';
 import frame80 from '@image/event-counter-image/frame-80.png';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
-import React, { useEffect, useMemo,useRef, useState } from "react";
+import React, { useCallback,useEffect, useMemo, useRef, useState } from "react";
 
 import useStyles from "./EventCountdown.styles";
 
@@ -22,9 +22,16 @@ const EventCountdown: React.FC = () => {
     minutes: '00',
   });
 
-  const countdownInterval = useRef<NodeJS.Timeout | undefined>(undefined);
+  const countdownInterval = useRef<NodeJS.Timeout | null>(null);
 
-  const updateCountdown = () => {
+  const clearCountdownInterval = useCallback(() => {
+    if (countdownInterval.current !== null) {
+      clearInterval(countdownInterval.current);
+      countdownInterval.current = null;
+    }
+  }, []);
+
+  const updateCountdown = useCallback(() => {
     const now = dayjs();
     const difference = eventStartDate.diff(now);
 
@@ -33,7 +40,7 @@ const EventCountdown: React.FC = () => {
       console.log('Event start!');
       setTimeLeft({ days: '00', hours: '00', minutes: '00' });
 
-      clearInterval(countdownInterval.current!);
+      clearCountdownInterval();
       return;
     }
 
@@ -48,7 +55,7 @@ const EventCountdown: React.FC = () => {
       hours: hours.padStart(2, '0'),
       minutes: minutes.padStart(2, '0'),
     });
-  };
+  }, [clearCountdownInterval]);
 
   useEffect(() => {
     updateCountdown();
@@ -60,9 +67,9 @@ const EventCountdown: React.FC = () => {
     }
 
     return () => {
-      clearInterval(countdownInterval.current!);
+      clearCountdownInterval();
     };
-  }, []);
+  }, [updateCountdown, clearCountdownInterval]);
 
   const eventDateDisplay = useMemo(() => {
     const eventStartMonth = eventStartDate.format('MMMM').toUpperCase();
@@ -89,23 +96,14 @@ const EventCountdown: React.FC = () => {
 
     display += `, `;
 
-    return (
-      <>
-        {display}
-        <span className={classes.boldText}>{eventYear}</span>
-      </>
-    );
-  }, [classes.boldText]);
+    return {display, eventYear};
+  }, []);
 
   return (
-    <div className={classes.container}>
-      <div className={classes.imageBlock}>
+    <section className={classes.section}>
         <img className={classes.image} src={frame80} alt="conference image" />
-      </div>
 
-      <div className={classes.titleBlock}>
         <h2 className={classes.title}>Canada's Largest Crypto, Web3 & Blockchain Event</h2>
-      </div>
 
       <div className={classes.counterBlock}>
         <div className={classes.counterItem}>
@@ -128,7 +126,8 @@ const EventCountdown: React.FC = () => {
         <div className={classes.infoItem}>
           <img className={classes.infoIcon} src={calendarIcon} alt="" aria-hidden="true" />
           <span className={classes.infoText}>
-            {eventDateDisplay}
+            {eventDateDisplay.display}
+            <span className={classes.boldText}>{eventDateDisplay.eventYear}</span>
           </span>
         </div>
 
@@ -140,7 +139,7 @@ const EventCountdown: React.FC = () => {
           </span>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

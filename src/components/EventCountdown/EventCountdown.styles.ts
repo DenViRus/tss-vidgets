@@ -45,6 +45,7 @@ const useStyles = makeStyles()(() => ({
   },
 
   counterBlock: {
+    position: 'relative',
     width: 'clamp(33.4rem, 19.9000rem + 28.1250vw, 60.4rem)',
     display: 'flex',
     justifyContent: 'space-between',
@@ -117,6 +118,19 @@ const useStyles = makeStyles()(() => ({
 
   boldText: {
     fontWeight: '700',
+  },
+
+  blinking: {
+    position: 'absolute',
+    top: '0',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    animation: 'blinking 1s infinite',
+  },
+  '@keyframes blinking': {
+    '0%': { opacity: 1 },
+    '50%': { opacity: 0 },
+    '100%': { opacity: 1 },
   },
 
 }));

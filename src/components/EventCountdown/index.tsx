@@ -9,13 +9,14 @@ import useStyles from "./EventCountdown.styles";
 
 dayjs.extend(duration);
 
-const eventStartDate = dayjs('2024-11-28T17:00:00');
-const eventDurationDays = 5;
-const eventEndDate = eventStartDate.add(eventDurationDays - 1, 'day');
+const eventStartDate = dayjs('2024-11-25T20:15:00');
+const eventEndDate = dayjs('2024-11-25T20:20:00');
+
 
 const EventCountdown: React.FC = () => {
   const { classes } = useStyles();
 
+  const [eventStatus, setEventStatus] = useState<'before' | 'ongoing' | 'ended'>('before');
   const [timeLeft, setTimeLeft] = useState({
     days: '00',
     hours: '00',
@@ -33,19 +34,36 @@ const EventCountdown: React.FC = () => {
 
   const updateCountdown = useCallback(() => {
     const now = dayjs();
-    const difference = eventStartDate.diff(now);
 
-    if (difference <= 0) {
-      console.log({ days: '00', hours: '00', minutes: '00' });
-      console.log('Event start!');
+    if (now.isAfter(eventEndDate)) {
+      setEventStatus('ended');
       setTimeLeft({ days: '00', hours: '00', minutes: '00' });
-
       clearCountdownInterval();
+      console.log('The event has ended.');
       return;
     }
 
-    const durationLeft = dayjs.duration(difference);
+    if (now.isAfter(eventStartDate)) {
+      setEventStatus('ongoing');
+      const difference = eventEndDate.diff(now);
+      const durationLeft = dayjs.duration(difference);
 
+      const days = Math.floor(durationLeft.asDays()).toString();
+      const hours = durationLeft.hours().toString();
+      const minutes = durationLeft.minutes().toString();
+
+      setTimeLeft({
+        days: days.padStart(2, '0'),
+        hours: hours.padStart(2, '0'),
+        minutes: minutes.padStart(2, '0'),
+      });
+      return;
+    }
+
+    const difference = eventStartDate.diff(now);
+    if (difference <= 0) return;
+
+    const durationLeft = dayjs.duration(difference);
     const days = Math.floor(durationLeft.asDays()).toString();
     const hours = durationLeft.hours().toString();
     const minutes = durationLeft.minutes().toString();
@@ -59,12 +77,7 @@ const EventCountdown: React.FC = () => {
 
   useEffect(() => {
     updateCountdown();
-
-    if (eventStartDate.diff(dayjs()) > 0) {
-      countdownInterval.current = setInterval(() => {
-        updateCountdown();
-      }, 1000);
-    }
+    countdownInterval.current = setInterval(() => updateCountdown(), 1000);
 
     return () => {
       clearCountdownInterval();
@@ -79,24 +92,17 @@ const EventCountdown: React.FC = () => {
 
     let display = '';
 
-    if (eventDurationDays > 1) {
-      if (eventStartDate.month() === eventEndDate.month()) {
-
-        display = `${eventStartMonth} ${eventStartDay} - ${eventEndDay}`;
-      } else {
-
-        const eventStartMonthAbbrev = eventStartDate.format('MMM').toUpperCase();
-        const eventEndMonthAbbrev = eventEndDate.format('MMM').toUpperCase();
-        display = `${eventStartMonthAbbrev} ${eventStartDay} - ${eventEndMonthAbbrev} ${eventEndDay}`;
-      }
+    if (eventStartDate.month() === eventEndDate.month()) {
+      display = `${eventStartMonth} ${eventStartDay} - ${eventEndDay}`;
     } else {
-
-      display = `${eventStartMonth} ${eventStartDay}`;
+      const eventStartMonthAbbrev = eventStartDate.format('MMM').toUpperCase();
+      const eventEndMonthAbbrev = eventEndDate.format('MMM').toUpperCase();
+      display = `${eventStartMonthAbbrev} ${eventStartDay} - ${eventEndMonthAbbrev} ${eventEndDay}`;
     }
 
     display += `, `;
 
-    return {display, eventYear};
+    return { display, eventYear };
   }, []);
 
   return (
@@ -105,21 +111,33 @@ const EventCountdown: React.FC = () => {
 
         <h2 className={classes.title}>Canada's Largest Crypto, Web3 & Blockchain Event</h2>
 
-      <div className={classes.counterBlock}>
-        <div className={classes.counterItem}>
-          <span className={classes.counterNumber}>{timeLeft.days}</span>
-          <span className={classes.counterText}>Days</span>
-        </div>
+        <div className={classes.counterBlock}>
+        {eventStatus === 'ongoing' && (
+          <span className={`${classes.counterText} ${classes.blinking}`}>
+            The event is ongoing
+          </span>
+        )}
+        {eventStatus === 'ended' && (
+          <span className={classes.counterText}>The event has ended</span>
+        )}
+        {eventStatus !== 'ended' && (
+          <>
+            <div className={classes.counterItem}>
+              <span className={classes.counterNumber}>{timeLeft.days}</span>
+              <span className={classes.counterText}>Days</span>
+            </div>
 
-        <div className={classes.counterItem}>
-          <span className={classes.counterNumber}>{timeLeft.hours}</span>
-          <span className={classes.counterText}>Hours</span>
-        </div>
+            <div className={classes.counterItem}>
+              <span className={classes.counterNumber}>{timeLeft.hours}</span>
+              <span className={classes.counterText}>Hours</span>
+            </div>
 
-        <div className={classes.counterItem}>
-          <span className={classes.counterNumber}>{timeLeft.minutes}</span>
-          <span className={classes.counterText}>Mins</span>
-        </div>
+            <div className={classes.counterItem}>
+              <span className={classes.counterNumber}>{timeLeft.minutes}</span>
+              <span className={classes.counterText}>Mins</span>
+            </div>
+          </>
+        )}
       </div>
 
       <div className={classes.infoBlock}>

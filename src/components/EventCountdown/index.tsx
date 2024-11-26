@@ -9,8 +9,8 @@ import useStyles from "./EventCountdown.styles";
 
 dayjs.extend(duration);
 
-const eventStartDate = dayjs('2024-11-26T12:58:00');
-const eventEndDate = dayjs('2024-11-26T13:05:00');
+const eventStartDate = dayjs('2024-11-28T12:00:00');
+const eventEndDate = dayjs('2024-12-03T12:00:00');
 
 const EventCountdown: React.FC = () => {
   const { classes } = useStyles();

@@ -9,9 +9,8 @@ import useStyles from "./EventCountdown.styles";
 
 dayjs.extend(duration);
 
-const eventStartDate = dayjs('2024-11-25T20:15:00');
-const eventEndDate = dayjs('2024-11-25T20:20:00');
-
+const eventStartDate = dayjs('2024-11-26T12:58:00');
+const eventEndDate = dayjs('2024-11-26T13:05:00');
 
 const EventCountdown: React.FC = () => {
   const { classes } = useStyles();
@@ -86,24 +85,26 @@ const EventCountdown: React.FC = () => {
 
   const eventDateDisplay = useMemo(() => {
     const eventStartMonth = eventStartDate.format('MMMM').toUpperCase();
-    const eventStartDay = eventStartDate.format('DD');
-    const eventEndDay = eventEndDate.format('DD');
-    const eventYear = eventStartDate.format('YYYY');
+  const eventStartDay = eventStartDate.format('DD');
+  const eventEndDay = eventEndDate.format('DD');
+  const eventStartMonthAbbrev = eventStartDate.format('MMM').toUpperCase();
+  const eventEndMonthAbbrev = eventEndDate.format('MMM').toUpperCase();
+  const eventYear = eventStartDate.format('YYYY');
 
-    let display = '';
+  let display = '';
 
-    if (eventStartDate.month() === eventEndDate.month()) {
-      display = `${eventStartMonth} ${eventStartDay} - ${eventEndDay}`;
-    } else {
-      const eventStartMonthAbbrev = eventStartDate.format('MMM').toUpperCase();
-      const eventEndMonthAbbrev = eventEndDate.format('MMM').toUpperCase();
-      display = `${eventStartMonthAbbrev} ${eventStartDay} - ${eventEndMonthAbbrev} ${eventEndDay}`;
-    }
-
-    display += `, `;
-
-    return { display, eventYear };
-  }, []);
+  if (eventStartDate.isSame(eventEndDate, 'day')) {
+    display = `${eventStartMonth} ${eventStartDay}`;
+  }
+  else if (eventStartDate.month() === eventEndDate.month()) {
+    display = `${eventStartMonth} ${eventStartDay} - ${eventEndDay}`;
+  }
+  else {
+    display = `${eventStartMonthAbbrev} ${eventStartDay} - ${eventEndMonthAbbrev} ${eventEndDay}`;
+  }
+  display += `, `;
+  return { display, eventYear };
+}, []);
 
   return (
     <section className={classes.section}>
@@ -113,12 +114,12 @@ const EventCountdown: React.FC = () => {
 
         <div className={classes.counterBlock}>
         {eventStatus === 'ongoing' && (
-          <span className={`${classes.counterText} ${classes.blinking}`}>
+          <span className={`${classes.statusText} ${classes.blinking}`}>
             The event is ongoing
           </span>
         )}
         {eventStatus === 'ended' && (
-          <span className={classes.counterText}>The event has ended</span>
+          <span className={classes.statusText}>The event has ended</span>
         )}
         {eventStatus !== 'ended' && (
           <>

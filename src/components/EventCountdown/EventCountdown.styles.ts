@@ -1,5 +1,12 @@
 import eventCounterBackground from '@image/event-counter-image/event-counter-background.png';
-import { makeStyles } from "tss-react/mui";
+import { keyframes } from "tss-react";
+import { makeStyles  } from "tss-react/mui";
+
+const blinkingAnimation = keyframes({
+  '0%': { opacity: 1 },
+  '50%': { opacity: 0 },
+  '100%': { opacity: 1 },
+});
 
 const useStyles = makeStyles()(() => ({
   section: {
@@ -101,7 +108,6 @@ const useStyles = makeStyles()(() => ({
     justifyContent: 'center',
     alignItems: 'center',
     gap: '0.5rem',
-
   },
 
   infoIcon: {
@@ -120,17 +126,28 @@ const useStyles = makeStyles()(() => ({
     fontWeight: '700',
   },
 
+  statusText: {
+    width: '100%',
+    fontSize: 'clamp(2rem, 1.2500rem + 1.5625vw, 3.5rem)',
+    fontWeight: '700',
+    lineHeight: 'clamp(2.2rem, 1.4500rem + 1.5625vw, 3.7rem)',
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    color: 'rgba(252, 209, 68, 1)',
+  },
+
   blinking: {
     position: 'absolute',
-    top: '0',
+    top: '-1.5rem',
     left: '50%',
     transform: 'translateX(-50%)',
-    animation: 'blinking 1s infinite',
-  },
-  '@keyframes blinking': {
-    '0%': { opacity: 1 },
-    '50%': { opacity: 0 },
-    '100%': { opacity: 1 },
+    animation: `${blinkingAnimation} 1s infinite`,
+
+    '@media (max-width: 480px)': {
+      top: '-2rem',
+      fontSize: 'clamp(1.8rem, 1.1000rem + 1.2500vw, 2.8rem)',
+      lineHeight: 'clamp(2rem, 1.2500rem + 1.2500vw, 3.5rem)',
+    },
   },
 
 }));
